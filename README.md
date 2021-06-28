@@ -1,5 +1,10 @@
-# cnblogs2hexo
-一键博客搬家（大概 自动把博客园的所有文章转为多文件的markdown（md） 方便放在hexo上面
+# cnblogs2hexo2jekyll
+一键博客搬家（自动把博客园的所有文章转为多文件的markdown（md） 方便放在hexo上面
+
+原理：解析cnblogs博客备份的xml文件，生成md文件
+
+ - 增加从hexo 到jekyll 的格式切换。
+ - 修正文件路径非法的问题(测试)。
 
 # 依赖
 无外置依赖 本来想解析xml的 奈何不标准 遂手写正则
@@ -11,3 +16,5 @@
 
 # TODO
 自动下载所有图片  
+
+
