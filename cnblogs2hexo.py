@@ -1,8 +1,12 @@
 import os
 import re
-from datetime import datetime    
+from datetime import datetime
 
-xml_file = 'CNBlogs_BlogBackup_1_201707_202002.xml'
+'''
+  replace the / in title with the _ for fileName.md saving
+'''
+
+xml_file = 'CNBlogs_BlogBackup_131_201301_202106.xml'
 out_dir = 'output'
 
 xml_file = open(xml_file).read()
@@ -24,10 +28,28 @@ def get_date(date):
     return date
 
 for i in range(len(items)):
-    with open(out_dir + '/'+ titles[i] + '.md', 'w') as file:
+    if '/' in titles[i]:
+        print('path with slash:', titles[i])
+        title_legal = titles[i].replace('/', '_')
+    else:
+        title_legal = titles[i]
+
+    with open(out_dir + '/'+ title_legal + '.md', 'w') as file:
         file.write('---\n')
-        file.write('title: \'' + titles[i])
-        file.write('\'\ndate: ' + str(get_date(dates[i])))
+        if '\'' in titles[i] and '\"' not in titles[i]:
+            file.write('title: \"' + titles[i])
+            file.write('\"\ndate: ' + str(get_date(dates[i])))
+        elif '\"' in titles[i] and '\'' not in titles[i] :
+            file.write('title: \'' + titles[i])
+            file.write('\'\ndate: ' + str(get_date(dates[i])))
+        elif '\"' in titles[i] and '\'' in titles[i]:
+            file.write('title: \'' + titles[i])
+            file.write('\'\ndate: ' + str(get_date(dates[i])))
+            print('warning! the \' and \" are in frontmatter of file:', titles[i])
+        else:
+            file.write('title: \'' + titles[i])
+            file.write('\'\ndate: ' + str(get_date(dates[i])))
+
         file.write('\n---\n')
         file.write(items[i])
         file.close()
