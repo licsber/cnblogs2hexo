@@ -1,7 +1,7 @@
 # cnblogs2hexo2jekyll
 一键博客搬家（自动把博客园的所有文章转为多文件的markdown（md） 方便放在hexo上。把博客园转换成jekyll格式；把博客园转换成hexo格式。
 
-**原理：**解析cnblogs博客备份的xml文件，生成md文件
+**原理：** 解析cnblogs博客备份的xml文件，生成md文件
 
 **本项目：**
 
