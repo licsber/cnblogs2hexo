@@ -9,7 +9,7 @@ from datetime import datetime
 xml_file = 'CNBlogs_BlogBackup_131_201301_202106.xml'
 out_dir = 'output'
 
-xml_file = open(xml_file, 'r', encoding='UTF-8').read()
+xml_file = open(xml_file, 'r', encoding='utf-8').read()
 if xml_file[0] == '\ufeff':
     xml_file = xml_file[1:]
 
