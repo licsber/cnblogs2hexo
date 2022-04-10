@@ -9,7 +9,7 @@ from datetime import datetime
 xml_file = 'CNBlogs_BlogBackup_131_201301_202106.xml'
 out_dir = 'output'
 
-xml_file = open(xml_file).read()
+xml_file = open(xml_file, 'r', encoding='utf-8').read()
 if xml_file[0] == '\ufeff':
     xml_file = xml_file[1:]
 
@@ -34,7 +34,7 @@ for i in range(len(items)):
     else:
         title_legal = titles[i]
 
-    with open(out_dir + '/'+ title_legal + '.md', 'w') as file:
+    with open(out_dir + '/'+ title_legal + '.md', 'w', encoding='utf-8') as file:
         file.write('---\n')
         if '\'' in titles[i] and '\"' not in titles[i]:
             file.write('title: \"' + titles[i])
